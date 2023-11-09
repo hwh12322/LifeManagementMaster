@@ -1,4 +1,4 @@
-let serverHost = '127.0.0.1:80'
+let serverHost = 'lifemanagementmaster.onrender.com'
 function usernameShow() {//更新右上方用户名显示
     let username = localStorage.getItem('username')
     if (!username) {
