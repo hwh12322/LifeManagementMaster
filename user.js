@@ -6,9 +6,10 @@ const router = express.Router()
 const cors = require('cors')
 
 const db = mysql.createPool({
-    host: '127.0.0.1',
-    user: 'root',
-    password: 'Karyl0902',
+    host: '0k8.h.filess.io',
+    port: '3307',
+    user: 'LiveManagement_judgetest',
+    password: '77c7b67ea55e201eb1790f9e74210fd5181a4a0d',
     database: 'users_db'
 })
 
