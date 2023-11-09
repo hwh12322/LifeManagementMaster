@@ -78,7 +78,7 @@ function registerButton(event) {
     }
     password = md5(password)
     $.ajax({
-        url: `http://${serverHost}/user/register`,
+        url: `https://${serverHost}/user/register`,
         type: "POST",
         data: { username, password },
         dataType: "json",
@@ -104,7 +104,7 @@ function loginButton(event) {
     }
     password = md5(password)
     $.ajax({
-        url: `http://${serverHost}/user/login`,
+        url: `https://${serverHost}/user/login`,
         type: "POST",
         data: { username, password },
         dataType: "json",
