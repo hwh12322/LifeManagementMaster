@@ -1,4 +1,4 @@
-let serverHost = '127.0.0.1:80'
+let serverHost = '47.98.240.60:10010'
 function usernameShow() {//更新右上方用户名显示
     let username = localStorage.getItem('username')
     if (!username) {
@@ -41,6 +41,7 @@ function EditProfileSwitch() {
                 }
                 else {
                     alert('账号信息修改成功')
+                    localStorage.setItem('username', newUsername)
                     window.location.reload()
                 }
             }

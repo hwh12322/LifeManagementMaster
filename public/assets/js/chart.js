@@ -26,14 +26,13 @@ function getTaskToday() {
     })
     let beginTime = moment().startOf('day')
     let endTime = moment().endOf('day')
-    let taskToday
-    taskToday = tasks.reduce((function (accumulator = [], task) {
-        if (beginTime.isBefore(moment(task.start_time)) && moment(task.end_time).isBefore(endTime)) {
-            accumulator.push({ "task_id": task.task_id, "task_name": task.task_name, "start_time": moment(task.start_time), "end_time": moment(task.end_time), "remark": task.remark, "is_done": task.is_done })
-            return accumulator
-        }
-    }), []);
-    if (taskToday === undefined) taskToday = []
+
+    let taskToday = []
+    for (task of tasks) {
+        if (beginTime.isBefore(moment(task.start_time)) && moment(task.end_time).isBefore(endTime))
+            taskToday.push({ "task_id": task.task_id, "task_name": task.task_name, "start_time": moment(task.start_time), "end_time": moment(task.end_time), "remark": task.remark, "is_done": task.is_done })
+    }
+
     let tasks_name = taskToday.map((task) => task.task_name)
     let tasks_start_time = taskToday.map((task) => task.start_time.diff(beginTime, 'hours', true).toFixed(1))
     let tasks_during_time = taskToday.map((task) => task.end_time.diff(task.start_time, 'hours', true).toFixed(1))
