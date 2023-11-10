@@ -18,7 +18,6 @@ CREATE TABLE `users_db`.`tasks` (
   `is_done` TINYINT NOT NULL DEFAULT 0,
   PRIMARY KEY (`task_id`),
   UNIQUE INDEX `task_id_UNIQUE` (`task_id` ASC) VISIBLE,
-  UNIQUE INDEX `user_id_UNIQUE` (`user_id` ASC) VISIBLE,
   CONSTRAINT `user_id`
     FOREIGN KEY (`user_id`)
     REFERENCES `users_db`.`users` (`id`)

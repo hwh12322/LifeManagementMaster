@@ -42,10 +42,8 @@ function cancelAddTask() {
 
 function showTaskTable() {
     // 获取用户的所有事项信息
-    console.log('showTaskTable begin');
     let tasks = []
     let username = getUserName()
-    console.log(username);
     $.ajax({
         url: `http://${serverHost}/task/getTask`,
         data: { username },
@@ -82,7 +80,6 @@ function showTaskTable() {
 
     // 创建表格
     const table = document.getElementById("listTable");
-    console.log(table);
     // 添加表头
     const thead = document.createElement("thead");
     const tr = thead.insertRow();
@@ -161,7 +158,6 @@ function showTaskTable() {
     // 渲染表格
     function renderTable(tableData, pageSize, currentPage) {
         // 清除表格中的数据
-        console.log();
         tbody.innerHTML = ''
 
         // 获取当前页的数据
@@ -206,7 +202,6 @@ if (document.getElementById('listTable'))
 
 function editButtonFunc(event) {
     const selectedRow = $(event.currentTarget).closest("tr");
-    console.log(selectedRow);
     const data = selectedRow.find("td");
     // 将选中行数据传递给弹出框
     const modal = document.getElementById('tipText')
@@ -270,7 +265,6 @@ function deleteButtonFunc(event) {
 }
 
 function deleteTaskSubmit(event, task_id) {
-    console.log(event, task_id);
     if (event.currentTarget.innerHTML === '取消')
         $('.modal-content').hide()
     else {

@@ -1,4 +1,4 @@
-let serverHost = 'lifemanagementmaster.onrender.com'
+let serverHost = '127.0.0.1:80'
 function usernameShow() {//更新右上方用户名显示
     let username = localStorage.getItem('username')
     if (!username) {
@@ -49,7 +49,6 @@ function EditProfileSwitch() {
 }
 
 function userInfoCheck(username, password, password_confirm) {
-    console.log(username, password, password_confirm);
     if (username === '' || password === '') {
         alert('用户名和密码不能为空!')
         return false
@@ -78,7 +77,7 @@ function registerButton(event) {
     }
     password = md5(password)
     $.ajax({
-        url: `https://${serverHost}/user/register`,
+        url: `http://${serverHost}/user/register`,
         type: "POST",
         data: { username, password },
         dataType: "json",
@@ -104,7 +103,7 @@ function loginButton(event) {
     }
     password = md5(password)
     $.ajax({
-        url: `https://${serverHost}/user/login`,
+        url: `http://${serverHost}/user/login`,
         type: "POST",
         data: { username, password },
         dataType: "json",
